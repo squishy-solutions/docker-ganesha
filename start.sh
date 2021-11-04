@@ -6,12 +6,12 @@ set -e
 : ${LOG_LEVEL:="NIV_EVENT"} # NIV_DEBUG
 : ${CONF_FILE:="/etc/ganesha/ganesha.conf"}
 : ${PID_FILE:="/var/run/ganesha.pid"}
-: ${RCP_STATD_PORT:="662"}
+: ${RPC_STATD_PORT:="662"}
 
 function init_rpc {
     echo "Starting rpcbind"
     rpcbind -w || return 0
-    rpc.statd --port ${RCP_STATD_PORT} || return 0
+    rpc.statd --port ${RPC_STATD_PORT} || return 0
     sleep 1
 }
 
