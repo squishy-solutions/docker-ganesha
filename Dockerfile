@@ -3,7 +3,8 @@ FROM debian:11-slim
 # install prerequisites
 RUN DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
-    && apt-get install --yes --no-install-recommends netbase nfs-common dbus nfs-ganesha nfs-ganesha-vfs \
+    && apt-get install --yes --no-install-recommends netbase nfs-common dbus \
+        nfs-ganesha nfs-ganesha-proxy nfs-ganesha-vfs \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && mkdir -p /run/rpcbind /export /var/run/dbus \
